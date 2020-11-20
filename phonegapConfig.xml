@@ -3,10 +3,10 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "@APPPACKAGE"
         version   = "@APPVERSION">
-    <name>elishaE</name>
+    <name>@APPNAME</name>
 
     <description>
-     elisha
+       Captivate E-Learning Course
     </description>
 
     @APPPLATFORMS
