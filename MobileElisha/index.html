@@ -32,10 +32,11 @@
     <script src="scripts/fastclick.min.js"></script>
 
     <script>
-        alert("asdas");
+       
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
+            alert("onDeviceReady");
             var ref = window.open('http://delek-elisha.co.il/m', '_self', 'location=yes');
             //ref.addEventListener('loadstart', function (event) { alert('start: ' + event.url); });
             //ref.addEventListener('loadstop', function (event) { alert('stop: ' + event.url); });
@@ -47,16 +48,8 @@
 
         // hook up fast click for mobile devices - avoid 300ms delay
         window.addEventListener('load', function () {
-            // only use FastClick for iOS
-            //if (navigator.userAgent.indexOf('iPhone') ||
-            //    navigator.userAgent.indexOf('iPad'))
-           // FastClick.attach(document.body);
-            var ref = window.open('http://delek-elisha.co.il/m', '_self', 'location=yes');
-            //ref.addEventListener('loadstart', function (event) { alert('start: ' + event.url); });
-            //ref.addEventListener('loadstop', function (event) { alert('stop: ' + event.url); });
-            //ref.addEventListener('loaderror', function (event) { alert('error: ' + event.message); });
-            ref.addEventListener('exit', onBackKeyDown, false);
-            ref.addEventListener("backbutton", onBackKeyDown, false);
+            alert("load");
+            
         }, false);
     </script>
     <!--<script src="js/angular-concat.min.js"></script>-->
