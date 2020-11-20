@@ -22,10 +22,8 @@
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
-  
-    alert("connecting");
-    window.open('http://delek-elisha.co.il/m', '_self', 'location=yes');
+    // Cordova is now initialized. Have fun!
 
- 
-
+    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
+    document.getElementById('deviceready').classList.add('ready');
 }
