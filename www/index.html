@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>InAppBrowser.removeEventListener Example</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon" href="touch-icon.png" />
 
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8">
+    <link rel="icon" href="touch-icon.png" />
+    <meta name="msapplication-TileImage" content="touch-icon.png">
+</head>
+<body>
+    <!-- Cordova reference, this is added to your app when it's built. -->
+    <!--<script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+    <script src="scripts/index.js"></script>-->
+    <script src="cordova.js"></script>
+    <!--<script src="scripts/platformOverrides.js"></script>-->
 
-    // Wait for device API libraries to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
+    <!--<script src="scripts/index.js"></script>-->
 
-    // Global InAppBrowser reference
-    var iabRef = null;
+    <script>
 
-    function iabLoadStart(event) {
-        alert(event.type + ' - ' + event.url);
-    }
+        document.addEventListener("deviceready", onDeviceReady, false);
 
-    function iabLoadStop(event) {
-        alert(event.type + ' - ' + event.url);
-    }
+        function onDeviceReady() {
+            var ref = window.open('http://www.jetcopy.co.il/', '_self', 'location=yes');
+            //ref.addEventListener('loadstart', function (event) { alert('start: ' + event.url); });
+            //ref.addEventListener('loadstop', function (event) { alert('stop: ' + event.url); });
+            //ref.addEventListener('loaderror', function (event) { alert('error: ' + event.message); });
+            ref.addEventListener('exit', onBackKeyDown, false);
+            ref.addEventListener("backbutton", onBackKeyDown, false);
+        }
 
-    function iabLoadError(event) {
-        alert(event.type + ' - ' + event.message);
-    }
+        function onBackKeyDown(e) {
+            e.preventDefault();
+            navigator.notification.confirm("אתה בטוח שברצונך לצאת?", onConfirm, "Confirmation", "Yes,No");
+            // Prompt the user with the choice
+        }
 
-    function iabClose(event) {
-         alert(event.type);
-         iabRef.removeEventListener('loadstart', iabLoadStart);
-         iabRef.removeEventListener('loadstop', iabLoadStop);
-         iabRef.removeEventListener('loaderror', iabLoadError);
-         iabRef.removeEventListener('exit', iabClose);
-    }
-
-    // device APIs are available
-    //
-    function onDeviceReady() {
-         iabRef = window.open('http://apache.org', '_blank', 'location=yes');
-         iabRef.addEventListener('loadstart', iabLoadStart);
-         iabRef.addEventListener('loadstop', iabLoadStop);
-         iabRef.addEventListener('loaderror', iabLoadError);
-         iabRef.addEventListener('exit', iabClose);
-    }
-
+        function onConfirm(button) {
+            if (button == 2) {//If User selected No, then we just do nothing
+                return;
+            } else {
+                navigator.app.exitApp();// Otherwise we quit the app.
+            }
+        }
     </script>
-  </head>
-  <body>
-  </body>
+
+</body>
 </html>
