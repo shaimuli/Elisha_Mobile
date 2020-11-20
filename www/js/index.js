@@ -23,12 +23,12 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
-    var ref = window.open('http://delek-elisha.co.il/m', '_self', 'location=yes');
             //ref.addEventListener('loadstart', function (event) { alert('start: ' + event.url); });
             //ref.addEventListener('loadstop', function (event) { alert('stop: ' + event.url); });
             //ref.addEventListener('loaderror', function (event) { alert('error: ' + event.message); });
-            ref.addEventListener('exit', onBackKeyDown, false);
-            ref.addEventListener("backbutton", onBackKeyDown, false);
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+    alert("connecting");
+    window.open('http://delek-elisha.co.il/m', '_self', 'location=yes');
+
 }
