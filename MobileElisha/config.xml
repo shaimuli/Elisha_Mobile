@@ -31,12 +31,12 @@
   <preference name="android-minSdkVersion" value="10" />
   <preference name="android-installLocation" value="auto" />
   <preference name="orientation" value="portrait"/>
-
-  
-  <vs:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
-  <vs:plugin name="org.apache.cordova.statusbar" version="0.1.8" />
-
+  <preference name="AndroidPersistentFileLocation" value="Internal" />
+  <preference name="phonegap-version" value="cli-6.5.0" />
   <vs:platformSpecificValues />
 
+  <plugin name="cordova-plugin-device" />
+  <plugin name="cordova-plugin-file" />
+  <plugin name="cordova-plugin-statusbar" />
 
 </widget>
