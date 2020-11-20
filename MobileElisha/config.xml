@@ -30,9 +30,13 @@
   <preference name="android-minSdkVersion" value="7" />
   <preference name="android-installLocation" value="auto" />
   <preference name="phonegap-version" value="cli-6.5.0" />
+  <preference name="target-device"    value="universal" />
   <preference name="Fullscreen" value="true" />
   <preference name="ShowTitle" value="True" />
   <vs:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
   <vs:plugin name="org.apache.cordova.splashscreen" version="0.3.3" />
   <vs:plugin name="org.apache.cordova.statusbar" version="0.1.8" />
+ 
+
+
 </widget>
