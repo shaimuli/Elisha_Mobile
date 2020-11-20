@@ -10,32 +10,16 @@
   <icon src="res/icon/android/icon-72-hdpi.png"/>
   <icon src="res/icon/android/icon-96-xhdpi.png" />
   <access origin="*" />
-  <vs:features />
-  <preference name="SplashScreen" value="screen" />
-  <preference name="windows-target-version" value="8.0" />
-  <preference name="windows-phone-target-version" value="8.1" />
-  <preference name="permissions" value="none" />
-  <preference name="orientation" value="default" />
-  <preference name="target-device" value="universal" />
-  <preference name="fullscreen" value="true" />
-  <preference name="webviewbounce" value="true" />
-  <preference name="prerendered-icon" value="true" />
-  <preference name="stay-in-webview" value="false" />
-  <preference name="ios-statusbarstyle" value="black-opaque" />
-  <preference name="detect-data-types" value="true" />
-  <preference name="exit-on-suspend" value="false" />
-  <preference name="show-splash-screen-spinner" value="true" />
-  <preference name="auto-hide-splash-screen" value="true" />
-  <preference name="disable-cursor" value="false" />
-  <preference name="android-minSdkVersion" value="7" />
-  <preference name="android-installLocation" value="auto" />
-  <preference name="phonegap-version" value="cli-6.5.0" />
-  <preference name="target-device"    value="universal" />
-  <preference name="Fullscreen" value="true" />
-  <preference name="ShowTitle" value="True" />
-  
-  <vs:plugin name="org.apache.cordova.inappbrowser"  />
-  <vs:plugin name="org.apache.cordova.splashscreen" />
+  <plugin name="cordova-plugin-device" />
+  <plugin name="cordova-plugin-file" />
+  <plugin name="cordova-plugin-inappbrowser" />
+  <plugin name="cordova-plugin-statusbar" />
   
 
+    <preference name="AndroidPersistentFileLocation" value="Internal" />
+    <preference name="permissions" value="none" />
+    <preference name="phonegap-version" value="cli-6.5.0" />
+    <preference name="target-device"    value="universal" />
+    <preference name="fullscreen"       value="false" />
+	
 </widget>
