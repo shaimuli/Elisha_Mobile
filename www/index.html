@@ -1,88 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    !-- Good default declaration:
-    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-        * Enable inline JS: add 'unsafe-inline' to default-src
-        * Enable eval(): add 'unsafe-eval' to default-src
--->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' foo.com">
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">
 
-<!-- Allow everything but only from the same origin and foo.com -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' foo.com">
 
-<!-- This policy allows everything (eg CSS, AJAX, object, frame, media, etc) except that 
-    * CSS only from the same origin and inline styles,
-    * scripts only from the same origin and inline styles, and eval()
--->
-<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
-
-<!-- Allows XHRs only over HTTPS on the same domain. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:">
-
-<!-- Allow iframe to https://cordova.apache.org/ -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="apple-touch-icon" href="touch-icon.png" />
-
-    <link rel="icon" href="touch-icon.png" />
-    <meta name="msapplication-TileImage" content="touch-icon.png">
-    <script src="cordova.js"></script>
-</head>
-<body>
-
-    <div class="app">
-        <h1>Apache Cordova</h1>
-        <div id="deviceready" class="blink">
+        <link rel="stylesheet" href="css/index.css">
+        <title>Elisha</title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>אלישע</h1>
+            <div id="deviceready" class="blink">
+               
+            </div>
         </div>
-    </div>
+        <script src="cordova.js"></script>
+        <!-- <script src="js/index.js"></script> -->
+        
+        <script>
+              alert("init");
+            document.addEventListener('deviceready', onDeviceReady, false);
 
-    
-    <!-- Cordova reference, this is added to your app when it's built. -->
-    <!--<script src="cordova.js"></script>
-    <script src="scripts/platformOverrides.js"></script>
-    <script src="scripts/index.js"></script>-->
-   
-    <!--<script src="scripts/platformOverrides.js"></script>-->
+                function onDeviceReady() {
+                    // Cordova is now initialized. Have fun!
+                            //ref.addEventListener('loadstart', function (event) { alert('start: ' + event.url); });
+                            //ref.addEventListener('loadstop', function (event) { alert('stop: ' + event.url); });
+                            //ref.addEventListener('loaderror', function (event) { alert('error: ' + event.message); });
+                    
+                   
+                    window.open('http://delek-elisha.co.il/m', '_self', 'location=yes');
 
-    <!--<script src="scripts/index.js"></script>-->
 
-    <script>
-        alert("asasdas");
-        document.addEventListener("deviceready", onDeviceReady, false);
-
-        function onDeviceReady() {
-            var ref = window.open('http://delek-elisha.co.il/m', '_self', 'location=yes');
-            //ref.addEventListener('loadstart', function (event) { alert('start: ' + event.url); });
-            //ref.addEventListener('loadstop', function (event) { alert('stop: ' + event.url); });
-            //ref.addEventListener('loaderror', function (event) { alert('error: ' + event.message); });
-            ref.addEventListener('exit', onBackKeyDown, false);
-            ref.addEventListener("backbutton", onBackKeyDown, false);
-        }
-
-        function onBackKeyDown(e) {
-            e.preventDefault();
-            navigator.notification.confirm("אתה בטוח שברצונך לצאת?", onConfirm, "Confirmation", "Yes,No");
-            // Prompt the user with the choice
-        }
-
-        function onConfirm(button) {
-            if (button == 2) {//If User selected No, then we just do nothing
-                return;
-            } else {
-                navigator.app.exitApp();// Otherwise we quit the app.
-            }
-        }
-    </script>
-
-</body>
+                    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
+                    document.getElementById('deviceready').classList.add('ready');
+                }
+        </script>
+    </body>
 </html>
