@@ -19,68 +19,8 @@
 
     <link href="css/musicstore.css" rel="stylesheet" />
 </head>
-<body ng-app="app">
-    <div id="TitleBar">
-        <a href="#/albums">
-            <img src="images/logo.png"
-                 style="height: 35px; float: left" />
-            <div style="float: left; margin-left: 5px; line-height: 1.2">
-                <i style="color: steelblue; font-size: 0.8em; font-weight: bold;">Oge</i><br />
-                <i style="color: whitesmoke; font-size: 1.25em; font-weight: bold;">תוכנת דלק</i>
-            </div>
-        </a>
-    </div>
-    <div ng-controller="headerController" ng-cloak
-         style="margin: 0; padding: 0; border: none;">
-        <div class="banner">
-            <!--<nav id="Toolbar-Top" class="pull-right">
-                <a href="#/albums" ng-class="{ selected: activeTab == 'albums'}">
-                    <img src="images/record.png" title="Albums" /> <span>Albums</span>
-                </a>
-                <a href="#/artists" ng-class="{ selected: activeTab == 'artists'}">
-                    <img src="images/artists32.png" title="Artists" /> <span>Artists</span>
-                </a>
-                <a href="#/options" ng-class="{ selected: activeTab == 'options'}">
-                    <img src="images/gear.png" title="Options" /> <span>Options</span>
-                </a>
-            </nav>-->
-            <nav id="TopMenu" class="pull-right">
-                <a href="#/options" ng-class="{ selected: activeTab == 'options'}">
-                    <img src="images/gear.png" title="Options" /> <span>אפשרויות</span>
-                </a>
-                <!--<form style="float: left; width: 140px; padding-top: 2px;">
-                    <input id="SearchBox" type="text"
-                           class="form-control" placeholder="Search..."
-                           ng-model="searchText"
-                           ng-keyup="onKey()"
-                           ng-blur="searchBlur()"
-                           ng-hide="!searchAllowed || !searchVisible">
-                </form>
-                <a ng-click="showSearch()" ng-hide="searchVisible || !searchAllowed">
-                    <img src="images/search.png" /> <span>Search</span>
-                </a>-->
-            </nav>
-        </div>
-        <div id="MainView" autoscroll="true" ng-cloak
-             style="width: 100%; padding-top: 10px;" xclass="slide-animation"
-             ng-view>
-        </div>
-
-       
-        <!--<div class="banner banner-bottom">
-            <nav id="Toolbar">
-                <a href="#/albums" ng-class="{ selected: activeTab == 'albums'}">
-                    <img src="images/record.png" title="Albums" /> <span>Albums</span>
-                </a>
-                <a href="#/artists" ng-class="{ selected: activeTab == 'artists'}">
-                    <img src="images/artists32.png" title="Artists" /> <span>Artists</span>
-                </a>
-                <a href="#/options" ng-class="{ selected: activeTab == 'options'}">
-                    <img src="images/gear.png" title="Options" /> <span>Options</span>
-                </a>
-            </nav>
-        </div>-->
-    </div>
+<body>
+   
 
     <script src="cordova.js"></script>
     <script src="scripts/platformOverrides.js"></script>
@@ -92,7 +32,7 @@
     <script src="scripts/fastclick.min.js"></script>
 
     <script>
-
+        alert("asdas");
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
