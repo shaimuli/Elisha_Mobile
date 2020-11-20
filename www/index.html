@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="css/index.css">
-        <title>Elisha</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>אלישע</h1>
-            <div id="deviceready" class="blink">
-               
-            </div>
-        </div>
-        <script src="cordova.js"></script>
-        <!-- <script src="js/index.js"></script> -->
-        
-        <script type="text/javascript" charset="utf-8">
+  <head>
+    <title>InAppBrowser.removeEventListener Example</title>
 
-            // Wait for device API libraries to load
-            //
-            document.addEventListener("deviceready", onDeviceReady, false);
-        
-            // device APIs are available
-            //
-            function onDeviceReady() {
-                 var ref = window.open('http://apache.org', '_blank', 'location=yes');
-                 ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
-                 ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
-                 ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
-                 ref.addEventListener('exit', function(event) { alert(event.type); });
-            }
-        
-            </script>
-    </body>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Global InAppBrowser reference
+    var iabRef = null;
+
+    function iabLoadStart(event) {
+        alert(event.type + ' - ' + event.url);
+    }
+
+    function iabLoadStop(event) {
+        alert(event.type + ' - ' + event.url);
+    }
+
+    function iabLoadError(event) {
+        alert(event.type + ' - ' + event.message);
+    }
+
+    function iabClose(event) {
+         alert(event.type);
+         iabRef.removeEventListener('loadstart', iabLoadStart);
+         iabRef.removeEventListener('loadstop', iabLoadStop);
+         iabRef.removeEventListener('loaderror', iabLoadError);
+         iabRef.removeEventListener('exit', iabClose);
+    }
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+         iabRef = window.open('http://apache.org', '_blank', 'location=yes');
+         iabRef.addEventListener('loadstart', iabLoadStart);
+         iabRef.addEventListener('loadstop', iabLoadStop);
+         iabRef.addEventListener('loaderror', iabLoadError);
+         iabRef.addEventListener('exit', iabClose);
+    }
+
+    </script>
+  </head>
+  <body>
+  </body>
 </html>

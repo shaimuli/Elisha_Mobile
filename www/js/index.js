@@ -19,16 +19,15 @@
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
-document.addEventListener('deviceready', onDeviceReady, false);
-
+document.addEventListener("deviceready", onDeviceReady, false);
+        
+// device APIs are available
+//
 function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
-            //ref.addEventListener('loadstart', function (event) { alert('start: ' + event.url); });
-            //ref.addEventListener('loadstop', function (event) { alert('stop: ' + event.url); });
-            //ref.addEventListener('loaderror', function (event) { alert('error: ' + event.message); });
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
-    alert("connecting");
-    window.open('http://delek-elisha.co.il/m', '_self', 'location=yes');
-
+     var ref = window.open('http://apache.org', '_blank', 'location=yes');
+     ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
+     ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
+     ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
+     ref.addEventListener('exit', function(event) { alert(event.type); });
 }
+
