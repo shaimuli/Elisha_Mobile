@@ -2,6 +2,7 @@
 <widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="io.cordova.JetCopy" version="1.0.2" xmlns="http://www.w3.org/ns/widgets">
   <name>elisha</name>
   <description>elisha</description>
+  <allow-navigation href="http://delek-elisha.co.il/*" />
   <author href="http://cordova.io" email="aaa@aaa.apache.org">elisha</author>
   <content src="index.html" />
   <access origin="*" />
@@ -31,7 +32,7 @@
   <preference name="android-installLocation" value="auto" />
   <preference name="orientation" value="portrait"/>
 
-  <vs:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
+  
   <vs:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
   <vs:plugin name="org.apache.cordova.statusbar" version="0.1.8" />
 

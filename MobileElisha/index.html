@@ -37,20 +37,18 @@
 
         function onDeviceReady() {
             alert("onDeviceReady");
-            var ref = window.open('http://delek-elisha.co.il/m', '_self', 'location=yes');
+            var ref = cordova.InAppBrowser.open('http://delek-elisha.co.il/m', '_self', 'location=yes');
+
+           //var ref = window.open('http://delek-elisha.co.il/m', '_self', 'location=yes');
             //ref.addEventListener('loadstart', function (event) { alert('start: ' + event.url); });
             //ref.addEventListener('loadstop', function (event) { alert('stop: ' + event.url); });
             //ref.addEventListener('loaderror', function (event) { alert('error: ' + event.message); });
-            ref.addEventListener('exit', onBackKeyDown, false);
-            ref.addEventListener("backbutton", onBackKeyDown, false);
+            //ref.addEventListener('exit', onBackKeyDown, false);
+            //ref.addEventListener("backbutton", onBackKeyDown, false);
         }
 
 
-        // hook up fast click for mobile devices - avoid 300ms delay
-        window.addEventListener('load', function () {
-            alert("load");
-            
-        }, false);
+      
     </script>
     <!--<script src="js/angular-concat.min.js"></script>-->
     <script src="scripts/angular/angular.min.js"></script>
