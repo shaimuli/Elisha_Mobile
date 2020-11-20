@@ -2,6 +2,30 @@
 <html>
 <head>
     <meta charset="utf-8">
+    !-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+-->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">
+
+<!-- Allow everything but only from the same origin and foo.com -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' foo.com">
+
+<!-- This policy allows everything (eg CSS, AJAX, object, frame, media, etc) except that 
+    * CSS only from the same origin and inline styles,
+    * scripts only from the same origin and inline styles, and eval()
+-->
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+
+<!-- Allows XHRs only over HTTPS on the same domain. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:">
+
+<!-- Allow iframe to https://cordova.apache.org/ -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="">
@@ -12,23 +36,32 @@
 
     <link rel="icon" href="touch-icon.png" />
     <meta name="msapplication-TileImage" content="touch-icon.png">
+    <script src="cordova.js"></script>
 </head>
 <body>
+
+    <div class="app">
+        <h1>Apache Cordova</h1>
+        <div id="deviceready" class="blink">
+        </div>
+    </div>
+
+    
     <!-- Cordova reference, this is added to your app when it's built. -->
     <!--<script src="cordova.js"></script>
     <script src="scripts/platformOverrides.js"></script>
     <script src="scripts/index.js"></script>-->
-    <script src="cordova.js"></script>
+   
     <!--<script src="scripts/platformOverrides.js"></script>-->
 
     <!--<script src="scripts/index.js"></script>-->
 
     <script>
-
+        alert("asasdas");
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady() {
-            var ref = window.open('http://www.jetcopy.co.il/', '_self', 'location=yes');
+            var ref = window.open('http://delek-elisha.co.il/m', '_self', 'location=yes');
             //ref.addEventListener('loadstart', function (event) { alert('start: ' + event.url); });
             //ref.addEventListener('loadstop', function (event) { alert('stop: ' + event.url); });
             //ref.addEventListener('loaderror', function (event) { alert('error: ' + event.message); });

@@ -7,6 +7,23 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
+    !-- Allow links to example.com -->
+        <allow-navigation href="http://delek-elisha.co.il/*" />
+
+        <!-- Wildcards are allowed for the protocol, as a prefix
+            to the host, or as a suffix to the path -->
+        <allow-navigation href="*://*.delek-elisha/*" />
+
+        <!-- A wildcard can be used to whitelist the entire network,
+            over HTTP and HTTPS.
+            *NOT RECOMMENDED* -->
+        <allow-navigation href="*" />
+
+        <!-- The above is equivalent to these three declarations -->
+        <allow-navigation href="http://*/*" />
+        <allow-navigation href="https://*/*" />
+        <allow-navigation href="data:*" />
+
     <icon src="img/icon.png" />
     <content src="index.html" />
     <access origin="*" />
