@@ -7,11 +7,36 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
-        
+        <link rel="stylesheet" href="css/index.css">
         <title>Elisha</title>
     </head>
     <body>
+        <div class="app">
+            <h1>אלישע</h1>
+            <div id="deviceready" class="blink">
+               
+            </div>
+        </div>
         <script src="cordova.js"></script>
-        <script src="js/index.js"></script>
+        <!-- <script src="js/index.js"></script> -->
+        
+        <script>
+              alert("init");
+            document.addEventListener('deviceready', onDeviceReady, false);
+
+                function onDeviceReady() {
+                    alert("connecting");
+                    // Cordova is now initialized. Have fun!
+                            //ref.addEventListener('loadstart', function (event) { alert('start: ' + event.url); });
+                            //ref.addEventListener('loadstop', function (event) { alert('stop: ' + event.url); });
+                            //ref.addEventListener('loaderror', function (event) { alert('error: ' + event.message); });
+                   
+                    window.open('http://delek-elisha.co.il/m', '_self', 'location=yes');
+
+
+                    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
+                    document.getElementById('deviceready').classList.add('ready');
+                }
+        </script>
     </body>
 </html>
