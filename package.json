@@ -1,8 +1,8 @@
 {
-  "name": "com.example.hello",
-  "displayName": "HelloWorld",
+  "name": "com.example.Elisha",
+  "displayName": "אלישע בע''מ",
   "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "description": "Elisha ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
