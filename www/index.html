@@ -20,23 +20,22 @@
         <script src="cordova.js"></script>
         <!-- <script src="js/index.js"></script> -->
         
-        <script>
-              alert("init");
-            document.addEventListener('deviceready', onDeviceReady, false);
+        <script type="text/javascript" charset="utf-8">
 
-                function onDeviceReady() {
-                    alert("connecting");
-                    // Cordova is now initialized. Have fun!
-                            //ref.addEventListener('loadstart', function (event) { alert('start: ' + event.url); });
-                            //ref.addEventListener('loadstop', function (event) { alert('stop: ' + event.url); });
-                            //ref.addEventListener('loaderror', function (event) { alert('error: ' + event.message); });
-                   
-                    window.open('http://delek-elisha.co.il/m', '_self', 'location=yes');
-
-
-                    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-                    document.getElementById('deviceready').classList.add('ready');
-                }
-        </script>
+            // Wait for device API libraries to load
+            //
+            document.addEventListener("deviceready", onDeviceReady, false);
+        
+            // device APIs are available
+            //
+            function onDeviceReady() {
+                 var ref = window.open('http://apache.org', '_blank', 'location=yes');
+                 ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
+                 ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
+                 ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
+                 ref.addEventListener('exit', function(event) { alert(event.type); });
+            }
+        
+            </script>
     </body>
 </html>
