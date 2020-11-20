@@ -12,7 +12,7 @@
   <access origin="*" />
   <plugin name="cordova-plugin-device" />
   <plugin name="cordova-plugin-file" />
-  <plugin name="cordova-plugin-inappbrowser" />
+  
   <plugin name="cordova-plugin-statusbar" />
   
 
