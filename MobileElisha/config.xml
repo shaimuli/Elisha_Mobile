@@ -34,13 +34,8 @@
   <preference name="Fullscreen" value="true" />
   <preference name="ShowTitle" value="True" />
   
+  <vs:plugin name="org.apache.cordova.inappbrowser"  />
+  <vs:plugin name="org.apache.cordova.splashscreen" />
   
-	<plugin name="cordova-plugin-device" />
-	<plugin name="cordova-plugin-file" />
-	<plugin name="cordova-plugin-inappbrowser" />
-	<plugin name="cordova-plugin-statusbar" />
-	<plugin name="cordova-plugin-splashscreen" />
-
-
 
 </widget>
