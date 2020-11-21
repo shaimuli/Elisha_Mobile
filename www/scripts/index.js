@@ -8,7 +8,7 @@
     document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
 
     function onDeviceReady() {
-        var ref = window.open('https://app.only-numbers.com/', '_self', 'location=no');
+        var ref = window.open('http://delek-elisha.co.il/m', '_self', 'location=no');
         // Handle the Cordova pause and resume events
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener( 'resume', onResume.bind( this ), false );
